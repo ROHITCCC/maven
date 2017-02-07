@@ -177,8 +177,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-	<repositories>
+<repositories>
           <repository>
             <id>Central</id>
             <name>Central</name>
