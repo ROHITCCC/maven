@@ -1,53 +1,29 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.mulesoft.training</groupId>
-	<artifactId>maven-advance-project1</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <packaging>mule</packaging>
-	<name>Mule maven-advance-project1 Application</name>
-
-    <properties>
-    <!-- more properties here -->
-<derby.version>10.12.1.1</derby.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<mule.version>3.8.3</mule.version>
-    	<mule.tools.version>1.2</mule.tools.version>
-	</properties>
-
-	<build>
+<build>
 		<plugins>
 			<plugin>
-        <groupId>org.mule.tools.maven</groupId>
-        <artifactId>mule-app-maven-plugin</artifactId>
-        <version>1.1</version>
-        <extensions>true</extensions>
-    </plugin>
-    <plugin>
-        <groupId>org.mule.tools.maven</groupId>
-        <artifactId>mule-maven-plugin</artifactId>
-        <version>2.0</version>
-        <configuration>
-            <deploymentType>cloudhub</deploymentType>
-            <muleVersion>${mule.version}</muleVersion>
-            <username>pranitultimosoft</username>
-            <password>Ultimo123</password>
-            <redeploy>true</redeploy>
-            <environment>Production</environment>
-        </configuration>
-        <executions>
-            <execution>
-                <id>deploy</id>
-                <phase>deploy</phase>
-                <goals>
-                    <goal>deploy</goal>
-                </goals>
-            </execution>
-        </executions>
-    </plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-app-maven-plugin</artifactId>
+				<version>${mule.tools.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+				<deploymentType>cloudhub</deploymentType>
+<muleVersion>3.8.3</muleVersion>
+<username>rohitlo</username>
+<password>rohitRohit1</password>
+<workerType>Micro</workerType>
+<redeploy>true</redeploy>
+<environment>Production</environment>
+</configuration>
+<executions>
+<execution>
+<id>deploy</id>
+<phase>deploy</phase>
+<goals>
+<goal>deploy</goal>
+</goals>
+</execution>
+</executions>
+</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
@@ -111,6 +87,14 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-all</artifactId>
+      <version>5.6.0</version>
+  </dependency>
+		
+
+		
+		<dependency>
         	<groupId>com.mulesoft.muleesb.transports</groupId>
 			<artifactId>mule-transport-jms-ee</artifactId>
 			<version>${mule.version}</version>
@@ -135,12 +119,12 @@
 			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
+		<!-- non-mule dependencies -->
 		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
-			<version>${derby.version}</version>
-		</dependency>
+<groupId>org.apache.derby</groupId>
+<artifactId>derby</artifactId>
+<version>${derby.version}</version>
+</dependency>
 		<!-- for testing -->
 		<dependency>
 			<groupId>org.mule.tests</groupId>
@@ -150,13 +134,13 @@
 		</dependency>
 	<dependency>
             <groupId>org.mule.modules</groupId>
-            <artifactId>mule-module-http</artifactId>
+            <artifactId>mule-module-spring-config</artifactId>
             <version>${mule.version}</version>
             <scope>provided</scope>
         </dependency>
     <dependency>
             <groupId>org.mule.modules</groupId>
-            <artifactId>mule-module-spring-config</artifactId>
+            <artifactId>mule-module-http</artifactId>
             <version>${mule.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -166,26 +150,14 @@
             <version>${mule.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-all</artifactId>
-      <version>5.6.0</version>
-  </dependency>
-        <dependency>
-        <groupId>com.mulesoft.muleesb.transports</groupId>
-			<artifactId>mule-transport-jms-ee</artifactId>
-			<version>${mule.version}</version>
-			<scope>provided</scope>
-		</dependency>
     <dependency>
-            <groupId>org.mule.modules</groupId>
-            <artifactId>mule-module-json</artifactId>
-            <version>3.8.1</version>
+            <groupId>org.mule.transports</groupId>
+            <artifactId>mule-transport-jms</artifactId>
+            <version>${mule.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-	<repositories>
+<repositories>
           <repository>
             <id>Central</id>
             <name>Central</name>
@@ -214,4 +186,3 @@
         <url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
     </pluginRepository>
     </pluginRepositories>
-</project>
