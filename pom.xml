@@ -33,8 +33,8 @@
         <configuration>
             <deploymentType>cloudhub</deploymentType>
             <muleVersion>${mule.version}</muleVersion>
-            <username>pranitultimosoft</username>
-            <password>Ultimo123</password>
+            <username>rohitlo</username>
+            <password>rohitRohit1</password>
             <redeploy>true</redeploy>
             <environment>Production</environment>
         </configuration>
